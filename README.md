@@ -8,8 +8,8 @@
 | :--- | :--- |
 | **Sistema Operacional** | Ubuntu Server 22.04 LTS |
 | **Processador (vCPU)** | 1 Core/Processador |
-| **Memória RAM** | 1024 MB (1GB) |
-| **Disco Rígido (HD)** | 10 GB (Alocação Dinâmica) |
+| **Memória RAM** | 2048 MB (1GB) |
+| **Disco Rígido (HD)** | 25 GB (Alocação Dinâmica) |
 | **Placa de Rede** | 1 Interface em modo bridge |
 
 ---
