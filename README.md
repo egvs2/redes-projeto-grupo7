@@ -51,36 +51,40 @@ Heitor Moreira Costa
 
 ## 4. Usuŕios e senhas
 admingrupo7 = 0123456789
+
 taina.ferreira = 0123456789@
+
 matheus.souza = 0123456789@
+
 heitor.costa = 0123456789@
+
 emerson.silva = 0123456789@
 
 ## 5. Prints netplan
 
 ### Netplan vmlab01pc1
-![netplan_vmlab01pc1](imagens/netplan_vmlab01pc1.jpg)
+![netplan_vmlab01pc1](imagens/netplan_prints/netplan_vmlab01pc1.jpg)
 
 ### Netplan vmlab02pc1
-![netplan_vmlab02pc1](imagens/netplan_vmlab02pc1.png)
+![netplan_vmlab02pc1](imagens/netplan_prints/netplan_vmlab02pc1.png)
 
 ### Netplan vmlab01pc2
-![netplan_vmlab02pc1](imagens/netplan_vmlab01pc2.png)
+![netplan_vmlab02pc1](imagens/netplan_prints/netplan_vmlab01pc2.png)
 
 ### Netplan vmlab02pc2
-![netplan_vmlab02pc1](imagens/netplan_vmlab02pc2.png)
+![netplan_vmlab02pc1](imagens/netplan_prints/netplan_vmlab02pc2.png)
 
 ### Netplan vmlab01pc3
-![netplan_vmlab02pc1](imagens/netplan_vmlab02pc2.png)
+![netplan_vmlab02pc1](imagens/netplan_prints/netplan_vmlab01pc3.png)
 
 ### Netplan vmlab02pc3
-![netplan_vmlab02pc1](imagens/netplan_vmlab02pc2.png)
+![netplan_vmlab02pc1](imagens/netplan_prints/netplan_vmlab02pc3.png)
 
 ### Netplan vmlab01pc4
-![netplan_vmlab02pc1](imagens/netplan_vmlab02pc2.png)
+![netplan_vmlab02pc1](imagens/netplan_prints/netplan_vmlab01pc4.png)
 
 ### Netplan vmlab02pc4
-![netplan_vmlab02pc1](imagens/netplan_vmlab02pc2.png)
+![netplan_vmlab02pc1](imagens/netplan_prints/netplan_vmlab02pc4.png)
 
 ## 6. Prints de ping
 
