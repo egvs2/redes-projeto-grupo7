@@ -1,8 +1,15 @@
-# redes-projeto-grupo7
+# Instituto Federal de Alagoas
+## Fundamentos de redes de computadores
+## Grupo7
+Emerson Gomes Vanderlei da Silva
+Tainá Miranda Ferreira
+Matheus Azafhi Goes de Souza 
+Heitor Moreira Costa
+
 
 # Tabelas de Configuração de Hardware, Endereçamento e Domínio
 
-## 1. Tabela de Hardware das VMs
+# 1. Tabela de Hardware das VMs
 
 | Componente | Configuração por VM |
 | :--- | :--- |
@@ -41,3 +48,41 @@
 | 192.168.26.102 | `vmlab02pc3` | `vmlab02pc3.grupo7.bsi-26-1.maceio.lab` | vm02pc3, srv6 |
 | 192.168.26.103 | `vmlab01pc4` | `vmlab01pc4.grupo7.bsi-26-1.maceio.lab` | vm01pc4, srv7 |
 | 192.168.26.104 | `vmlab02pc4` | `vmlab02pc4.grupo7.bsi-26-1.maceio.lab` | vm02pc4, srv8 |
+
+## 4. Usuŕios e senhas
+admingrupo7 = 0123456789
+taina.ferreira = 0123456789@
+matheus.souza = 0123456789@
+heitor.costa = 0123456789@
+emerson.silva = 0123456789@
+
+## 5. Prints netplan
+
+### Netplan vmlab01pc1
+![netplan_vmlab01pc1](imagens/netplan_vmlab01pc1.jpg)
+
+### Netplan vmlab02pc1
+![netplan_vmlab02pc1](imagens/netplan_vmlab02pc1.png)
+
+### Netplan vmlab01pc2
+![netplan_vmlab02pc1](imagens/netplan_vmlab01pc2.png)
+
+### Netplan vmlab02pc2
+![netplan_vmlab02pc1](imagens/netplan_vmlab02pc2.png)
+
+### Netplan vmlab01pc3
+![netplan_vmlab02pc1](imagens/netplan_vmlab02pc2.png)
+
+### Netplan vmlab02pc3
+![netplan_vmlab02pc1](imagens/netplan_vmlab02pc2.png)
+
+### Netplan vmlab01pc4
+![netplan_vmlab02pc1](imagens/netplan_vmlab02pc2.png)
+
+### Netplan vmlab02pc4
+![netplan_vmlab02pc1](imagens/netplan_vmlab02pc2.png)
+
+## 6. Prints de ping
+
+
+
