@@ -6,6 +6,35 @@ Tainá Miranda Ferreira
 Matheus Azafhi Goes de Souza 
 Heitor Moreira Costa
 
+---
+
+## Sumário
+* [1. Tabela de Hardware das VMs](#1-tabela-de-hardware-das-vms)
+* [2. Tabela de Endereçamento IP e Hardware](#2-tabela-de-endereçamento-ip-e-hardware)
+* [3. Tabela de Nomenclatura e Domínio (FQDN)](#3-tabela-de-nomenclatura-e-domínio-fqdn)
+* [4. Usuários e senhas](#4-usuŕios-e-senhas)
+* [5. Prints netplan](#5-prints-netplan)
+* [6. Prints de ping](#6-prints-de-ping)
+* [6.1 PC1](#61-PC1)
+* [6.1.1 ping com FQDN](#61-Ping-com-FQDN)
+* [6.1.2 Ping com hostname](#61-Ping-com-IP)
+* [6.1.3 Ping com IP](#61-Ping-com-Hostname)
+* [6.1 PC1](#61-PC2)
+* [6.2.1 ping com FQDN](#61-ping-com-ip)
+* [6.2.2 Ping com hostname](#61-ping-com-ip)
+* [6.2.3 Ping com IP](#61-ping-com-ip)
+* [6.3 PC3](#61-ping)
+* [6.3.1 ping com FQDN](#61-ping-com-ip)
+* [6.3.2 Ping com hostname](#61-ping-com-ip)
+* [6.3.3 Ping com IP](#61-ping-com-ip)
+* [6.4 PC4](#61-ping)
+* [6.4.1 ping com FQDN](#61-ping-com-ip)
+* [6.4.2 Ping com hostname](#61-ping-com-ip)
+* [6.4.3 Ping com IP](#61-ping-com-ip)
+* [7 SSH](#7-Conexão-SSH)
+
+---
+
 
 # Tabelas de Configuração de Hardware, Endereçamento e Domínio
 
@@ -86,7 +115,11 @@ emerson.silva = 0123456789@
 ### Netplan vmlab02pc4
 ![netplan_vmlab02pc1](imagens/netplan_prints/netplan_vmlab02pc4.png)
 
-## 6. Prints de ping com alias
+## 6. Prints de ping
+
+## 6.1 PC1
+
+## 6.1 PC1.1 Ping com FQDN
 
 ### vmlab01pc1 para vm02pc1
 
@@ -117,7 +150,7 @@ emerson.silva = 0123456789@
 ![ping vmlab01pc1 para vmlab02pc4](imagens/ping_prints/pc1/alias/srv1_to_srv08.png)
 
 
-## 6.1 Ping com IP
+## 6.1.2 Ping com IP
 
 ![ping vmlab01pc1 para vmlab02pc1](imagens/ping_prints/pc1/ip/vmlab01pc1_to_192-168-26-98.png)
 
@@ -144,3 +177,6 @@ emerson.silva = 0123456789@
 ### vmlab01pc1 para vm02pc4
 
 ![ping vmlab01pc1 para vmlab02pc4](imagens/ping_prints/pc1/ip/vmlab01pc1_to_192-168-26-104.png)
+
+## 6.1.2 Ping com Hostname
+
