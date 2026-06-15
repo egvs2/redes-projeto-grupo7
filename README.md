@@ -86,7 +86,61 @@ emerson.silva = 0123456789@
 ### Netplan vmlab02pc4
 ![netplan_vmlab02pc1](imagens/netplan_prints/netplan_vmlab02pc4.png)
 
-## 6. Prints de ping
+## 6. Prints de ping com alias
+
+### vmlab01pc1 para vm02pc1
+
+![ping vmlab01pc1 para vmlab02pc1](imagens/ping_prints/pc1/alias/srv1_to_srv02.png)
+
+### vmlab01pc1 para vm01pc2
+
+![ping vmlab01pc1 para vmlab01pc2](imagens/ping_prints/pc1/alias/srv1_to_srv03.png)
+
+### vmlab01pc1 para vm02pc2
+
+![ping vmlab01pc1 para vmlab02pc2](imagens/ping_prints/pc1/alias/srv1_to_srv04.png)
+
+### vmlab01pc1 para vm01pc3
+
+![ping vmlab01pc1 para vmlab01pc3](imagens/ping_prints/pc1/alias/srv1_to_srv05.png)
+
+### vmlab01pc1 para vm02pc3
+
+![ping vmlab01pc1 para vmlab02pc3](imagens/ping_prints/pc1/alias/srv1_to_srv06.png)
+
+### vmlab01pc1 para vm01pc4
+
+![ping vmlab01pc1 para vmlab01pc4](imagens/ping_prints/pc1/alias/srv1_to_srv07.png)
+
+### vmlab01pc1 para vm02pc4
+
+![ping vmlab01pc1 para vmlab02pc4](imagens/ping_prints/pc1/alias/srv1_to_srv08.png)
 
 
+## 6.1 Ping com IP
 
+![ping vmlab01pc1 para vmlab02pc1](imagens/ping_prints/pc1/ip/vmlab01pc1_to_192-168-26-98.png)
+
+### vmlab01pc1 para vm01pc2
+
+![ping vmlab01pc1 para vmlab01pc2](imagens/ping_prints/pc1/ip/vmlab01pc1_to_192-168-26-99.png)
+
+### vmlab01pc1 para vm02pc2
+
+![ping vmlab01pc1 para vmlab02pc2](imagens/ping_prints/pc1/ip/vmlab01pc1_to_192-168-26-100.png)
+
+### vmlab01pc1 para vm01pc3
+
+![ping vmlab01pc1 para vmlab01pc3](imagens/ping_prints/pc1/ip/vmlab01pc1_to_192-168-26-101.png)
+
+### vmlab01pc1 para vm02pc3
+
+![ping vmlab01pc1 para vmlab02pc3](imagens/ping_prints/pc1/ip/vmlab01pc1_to_192-168-26-102.png)
+
+### vmlab01pc1 para vm01pc4
+
+![ping vmlab01pc1 para vmlab01pc4](imagens/ping_prints/pc1/ip/vmlab01pc1_to_192-168-26-103.png)
+
+### vmlab01pc1 para vm02pc4
+
+![ping vmlab01pc1 para vmlab02pc4](imagens/ping_prints/pc1/ip/vmlab01pc1_to_192-168-26-104.png)
