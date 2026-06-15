@@ -2,7 +2,7 @@
 ## Fundamentos de redes de computadores
 ## Grupo7
 Emerson Gomes Vanderlei da Silva
-Tainá Miranda Ferreira
+Tainá Ferreira Miranda
 Matheus Azafhi Goes de Souza 
 Heitor Moreira Costa
 
@@ -12,33 +12,32 @@ Heitor Moreira Costa
 * [1. Tabela de Hardware das VMs](#1-tabela-de-hardware-das-vms)
 * [2. Tabela de Endereçamento IP e Hardware](#2-tabela-de-endereçamento-ip-e-hardware)
 * [3. Tabela de Nomenclatura e Domínio (FQDN)](#3-tabela-de-nomenclatura-e-domínio-fqdn)
-* [4. Usuários e senhas](#4-usuŕios-e-senhas)
+* [4. Usuários e senhas](#4-usuários-e-senhas)
 * [5. Prints netplan](#5-prints-netplan)
 * [6. Prints de ping](#6-prints-de-ping)
-* [6.1 PC1](#61-PC1)
-* [6.1.1 ping com FQDN](#61-Ping-com-FQDN)
-* [6.1.2 Ping com hostname](#61-Ping-com-IP)
-* [6.1.3 Ping com IP](#61-Ping-com-Hostname)
-* [6.1 PC1](#61-PC2)
-* [6.2.1 ping com FQDN](#61-ping-com-ip)
-* [6.2.2 Ping com hostname](#61-ping-com-ip)
-* [6.2.3 Ping com IP](#61-ping-com-ip)
-* [6.3 PC3](#61-ping)
-* [6.3.1 ping com FQDN](#61-ping-com-ip)
-* [6.3.2 Ping com hostname](#61-ping-com-ip)
-* [6.3.3 Ping com IP](#61-ping-com-ip)
-* [6.4 PC4](#61-ping)
-* [6.4.1 ping com FQDN](#61-ping-com-ip)
-* [6.4.2 Ping com hostname](#61-ping-com-ip)
-* [6.4.3 Ping com IP](#61-ping-com-ip)
-* [7 SSH](#7-Conexão-SSH)
+  * [6.1 PC1](#61-pc1)
+    * [6.1.1 Ping com FQDN](#611-ping-com-fqdn)
+    * [6.1.2 Ping com hostname](#612-ping-com-hostname)
+    * [6.1.3 Ping com IP](#613-ping-com-ip)
+  * [6.2 PC2](#62-pc2)
+    * [6.2.1 Ping com FQDN](#621-ping-com-fqdn)
+    * [6.2.2 Ping com hostname](#622-ping-com-hostname)
+    * [6.2.3 Ping com IP](#623-ping-com-ip)
+  * [6.3 PC3](#63-pc3)
+    * [6.3.1 Ping com FQDN](#631-ping-com-fqdn)
+    * [6.3.2 Ping com hostname](#632-ping-com-hostname)
+    * [6.3.3 Ping com IP](#633-ping-com-ip)
+  * [6.4 PC4](#64-pc4)
+    * [6.4.1 Ping com FQDN](#641-ping-com-fqdn)
+    * [6.4.2 Ping com hostname](#642-ping-com-hostname)
+    * [6.4.3 Ping com IP](#643-ping-com-ip)
+* [7. Conexão SSH](#7-ssh)
 
 ---
 
-
 # Tabelas de Configuração de Hardware, Endereçamento e Domínio
 
-# 1. Tabela de Hardware das VMs
+## 1. Tabela de Hardware das VMs
 
 | Componente | Configuração por VM |
 | :--- | :--- |
@@ -78,7 +77,9 @@ Heitor Moreira Costa
 | 192.168.26.103 | `vmlab01pc4` | `vmlab01pc4.grupo7.bsi-26-1.maceio.lab` | vm01pc4, srv7 |
 | 192.168.26.104 | `vmlab02pc4` | `vmlab02pc4.grupo7.bsi-26-1.maceio.lab` | vm02pc4, srv8 |
 
-## 4. Usuŕios e senhas
+---
+
+## 4. Usuários e senhas
 admingrupo7 = 0123456789
 
 taina.ferreira = 0123456789@
@@ -88,6 +89,8 @@ matheus.souza = 0123456789@
 heitor.costa = 0123456789@
 
 emerson.silva = 0123456789@
+
+---
 
 ## 5. Prints netplan
 
@@ -115,68 +118,151 @@ emerson.silva = 0123456789@
 ### Netplan vmlab02pc4
 ![netplan_vmlab02pc1](imagens/netplan_prints/netplan_vmlab02pc4.png)
 
+---
+
 ## 6. Prints de ping
 
 ## 6.1 PC1
 
-## 6.1 PC1.1 Ping com FQDN
-
-### vmlab01pc1 para vm02pc1
-
-![ping vmlab01pc1 para vmlab02pc1](imagens/ping_prints/pc1/alias/srv1_to_srv02.png)
-
-### vmlab01pc1 para vm01pc2
-
-![ping vmlab01pc1 para vmlab01pc2](imagens/ping_prints/pc1/alias/srv1_to_srv03.png)
-
-### vmlab01pc1 para vm02pc2
-
-![ping vmlab01pc1 para vmlab02pc2](imagens/ping_prints/pc1/alias/srv1_to_srv04.png)
-
-### vmlab01pc1 para vm01pc3
-
-![ping vmlab01pc1 para vmlab01pc3](imagens/ping_prints/pc1/alias/srv1_to_srv05.png)
-
-### vmlab01pc1 para vm02pc3
-
-![ping vmlab01pc1 para vmlab02pc3](imagens/ping_prints/pc1/alias/srv1_to_srv06.png)
-
-### vmlab01pc1 para vm01pc4
-
-![ping vmlab01pc1 para vmlab01pc4](imagens/ping_prints/pc1/alias/srv1_to_srv07.png)
-
-### vmlab01pc1 para vm02pc4
-
-![ping vmlab01pc1 para vmlab02pc4](imagens/ping_prints/pc1/alias/srv1_to_srv08.png)
+### 6.1.1 Ping com FQDN
+*(Adicione aqui os prints de ping utilizando o FQDN para o PC1, se houver diferenciação de apelidos/aliases)*
 
 
-## 6.1.2 Ping com IP
+### 6.1.2 Ping com hostname
+*(Adicione aqui os prints de ping utilizando o Hostname Curto para o PC1)*
 
+### 6.1.3 Ping com IP
+
+### vmlab01pc1 para vmlab02pc1
 ![ping vmlab01pc1 para vmlab02pc1](imagens/ping_prints/pc1/ip/vmlab01pc1_to_192-168-26-98.png)
 
 ### vmlab01pc1 para vm01pc2
-
 ![ping vmlab01pc1 para vmlab01pc2](imagens/ping_prints/pc1/ip/vmlab01pc1_to_192-168-26-99.png)
 
 ### vmlab01pc1 para vm02pc2
-
 ![ping vmlab01pc1 para vmlab02pc2](imagens/ping_prints/pc1/ip/vmlab01pc1_to_192-168-26-100.png)
 
 ### vmlab01pc1 para vm01pc3
-
 ![ping vmlab01pc1 para vmlab01pc3](imagens/ping_prints/pc1/ip/vmlab01pc1_to_192-168-26-101.png)
 
 ### vmlab01pc1 para vm02pc3
-
 ![ping vmlab01pc1 para vmlab02pc3](imagens/ping_prints/pc1/ip/vmlab01pc1_to_192-168-26-102.png)
 
 ### vmlab01pc1 para vm01pc4
-
 ![ping vmlab01pc1 para vmlab01pc4](imagens/ping_prints/pc1/ip/vmlab01pc1_to_192-168-26-103.png)
 
 ### vmlab01pc1 para vm02pc4
-
 ![ping vmlab01pc1 para vmlab02pc4](imagens/ping_prints/pc1/ip/vmlab01pc1_to_192-168-26-104.png)
 
-## 6.1.2 Ping com Hostname
+---
 
+## 6.2 PC2
+
+### 6.2.1 Ping com FQDN
+
+### vmlab01pc2 para vm02pc2
+![ping vmlab01pc1 para vmlab02pc2](imagens/ping_prints/pc2/FQDN/srv3_to_srv04.jpeg)
+
+### vmlab01pc1 para vm01pc4
+![ping vmlab01pc1 para vmlab01pc4](imagens/ping_prints/pc2/FQDN/srv3_to_srv7.jpeg)
+
+### 6.2.2 Ping com hostname
+
+### vmlab01pc2 para vm02pc2
+![ping vmlab01pc1 para vmlab02pc2](imagens/ping_prints/pc2/hostname/mvlab01pc2_to_vmlab02pc2.jpeg)
+
+### vmlab01pc1 para vm01pc4
+![ping vmlab01pc1 para vmlab01pc4](imagens/ping_prints/pc2/hostname/vmlab01pc1_to_vmlab01pc4.jpeg)
+
+### 6.2.3 Ping com IP
+
+### vmlab01pc2 para vm02pc2
+![ping vmlab01pc1 para vmlab02pc2](imagens/ping_prints/pc2/ip/vmlab01pc1_to_192-168-26-100.jpeg)
+
+### vmlab01pc1 para vm01pc4
+![ping vmlab01pc1 para vmlab01pc4](imagens/ping_prints/pc2/ip/vmlab01pc1_to_192-168-26-103.jpeg)
+
+---
+
+## 6.3 PC3
+
+### 6.3.1 Ping com FQDN
+
+### vmlab01pc3 para vm02pc3
+
+![ping vmlab01pc1 para vmlab02pc2](imagens/ping_prints/pc3/FQDN/srv5_to_srv6.png)
+
+### vmlab01pc3 para vm01pc4
+![ping vmlab01pc1 para vmlab01pc4](imagens/ping_prints/pc3/FQDN/srv5_to_srv7.png)
+
+### vmlab01pc3 para vm02pc4
+![ping vmlab01pc1 para vmlab02pc4](imagens/ping_prints/pc3/FQDN/srv5_to_srv8.png)
+
+
+### 6.3.2 Ping com hostname
+
+### vmlab01pc3 para vm02pc3
+![ping vmlab01pc3 para vmlab02pc3](imagens/ping_prints/pc3/hostname/vmlab01pc3_to_vmlab02pc3.png)
+
+### vmlab01pc3 para vm01pc4
+![ping vmlab01pc3 para vmlab01pc4](imagens/ping_prints/pc3/FQDN/srv5_to_srv7.png)
+
+### vmlab01pc3 para vm02pc4
+![ping vmlab01pc3 para vmlab02pc4](imagens/ping_prints/pc3/FQDN/srv5_to_srv8.png)
+
+
+### 6.3.3 Ping com IP
+
+### vmlab01pc3 para vm01pc3
+![ping vmlab01pc3 para vmlab02pc3](imagens/ping_prints/pc3/ip/vmlab01pc3_to_192-168-26-102.png)
+
+### vmlab01pc3 para vm01pc4
+![ping vmlab01pc3 para vmlab01pc4](imagens/ping_prints/pc3/ip/vmlab01pc3_to_192-168-26-103.png)
+
+### vmlab01pc3 para vm01pc4
+![ping vmlab01pc3 para vmlab02pc4](imagens/ping_prints/pc3/ip/vmlab01pc3_to_192-168-26-104.png)
+
+
+---
+
+## 6.4 PC4
+
+### 6.4.1 Ping com FQDN
+
+### vmlab01pc4 para vm02pc4
+![ping vmlab01pc4 para vmlab02pc4](imagens/ping_prints/pc4/FQDN/srv7_to_srv8.png)
+
+### vmlab01pc4 para vm01pc2
+![ping vmlab01pc4 para vmlab01pc2](imagens/ping_prints/pc4/FQDN/srv7_to_srv3.png)
+
+### vmlab01pc4 para vm02pc2
+![ping vmlab01pc4 para vmlab02pc2](imagens/ping_prints/pc4/FQDN/srv7_to_srv4.png)
+
+
+### 6.4.2 Ping com hostname
+
+### vmlab01pc4 para vm02pc4
+![ping vmlab01pc4 para vmlab02pc4](imagens/ping_prints/pc4/hostname/vmlab01pc4_to_vmlab02pc4.png)
+
+### vmlab01pc4 para vm01pc2
+![ping vmlab01pc4 para vmlab01pc2](imagens/ping_prints/pc4/hostname/vmlab01pc4_to_vmlab02pc4.png)
+
+### vmlab01pc4 para vm02pc2
+![ping vmlab01pc4 para vmlab02pc2](imagens/ping_prints/pc4/hostname/vmlab01pc4_to_vmlab02pc2.png)
+
+
+### 6.4.3 Ping com IP
+
+### vmlab01pc4 para vm02pc4
+![ping vmlab01pc4 para vmlab02pc4](imagens/ping_prints/pc4/ip/vmlab01pc4_to_192-168-26-99.png)
+
+### vmlab01pc4 para vm01pc2
+![ping vmlab01pc4 para vmlab01pc2](imagens/ping_prints/pc4/ip/vmlab01pc4_to_192-168-26-100.png)
+
+### vmlab01pc4 para vm02pc2
+![ping vmlab01pc4 para vmlab02pc2](imagens/ping_prints/pc4/ip/vmlab01pc4_to_192-168-26-104.png)
+
+---
+
+## 7 SSH
+*(Adicione aqui as informações e prints referentes às conexões via SSH)*
