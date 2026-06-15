@@ -31,7 +31,7 @@ Heitor Moreira Costa
     * [6.4.1 Ping com FQDN](#641-ping-com-fqdn)
     * [6.4.2 Ping com hostname](#642-ping-com-hostname)
     * [6.4.3 Ping com IP](#643-ping-com-ip)
-* [7. Conexão SSH](#7-ssh)
+* [7. Conexão SSH](#7-conexão-ssh)
 
 ---
 
@@ -125,35 +125,40 @@ emerson.silva = 0123456789@
 ## 6.1 PC1
 
 ### 6.1.1 Ping com FQDN
-*(Adicione aqui os prints de ping utilizando o FQDN para o PC1, se houver diferenciação de apelidos/aliases)*
+
+### vmlab01pc1 para vm02pc1
+![ping vmlab01pc1 para vmlab02pc1](imagens/ping_prints/pc1/FQDN/srv1_to_srv2.png)
+
+### vmlab01pc1 para vm01pc3
+![ping vmlab01pc1 para vmlab01pc3](imagens/ping_prints/pc1/FQDN/srv1_to_srv5.png)
+
+### vmlab01pc1 para vm02pc3
+![ping vmlab01pc1 para vmlab02pc3](imagens/ping_prints/pc1/FQDN/srv1_to_srv6.png)
 
 
 ### 6.1.2 Ping com hostname
-*(Adicione aqui os prints de ping utilizando o Hostname Curto para o PC1)*
+
+### vmlab01pc1 para vm02pc1
+![ping vmlab01pc1 para vmlab02pc1](imagens/ping_prints/pc1/hostname/mvlab01pc1_to_vmlab02pc2.png)
+
+### vmlab01pc1 para vm01pc3
+![ping vmlab01pc1 para vmlab02pc3](imagens/ping_prints/pc1/hostname/mvlab01pc1_to_vmlab01pc3.png)
+
+### vmlab01pc1 para vm02pc3
+![ping vmlab01pc1 para vmlab02pc1](imagens/ping_prints/pc1/hostname/mvlab01pc1_to_vmlab02pc3.png)
+
+
 
 ### 6.1.3 Ping com IP
 
 ### vmlab01pc1 para vmlab02pc1
 ![ping vmlab01pc1 para vmlab02pc1](imagens/ping_prints/pc1/ip/vmlab01pc1_to_192-168-26-98.png)
 
-### vmlab01pc1 para vm01pc2
-![ping vmlab01pc1 para vmlab01pc2](imagens/ping_prints/pc1/ip/vmlab01pc1_to_192-168-26-99.png)
-
-### vmlab01pc1 para vm02pc2
-![ping vmlab01pc1 para vmlab02pc2](imagens/ping_prints/pc1/ip/vmlab01pc1_to_192-168-26-100.png)
-
 ### vmlab01pc1 para vm01pc3
 ![ping vmlab01pc1 para vmlab01pc3](imagens/ping_prints/pc1/ip/vmlab01pc1_to_192-168-26-101.png)
 
 ### vmlab01pc1 para vm02pc3
 ![ping vmlab01pc1 para vmlab02pc3](imagens/ping_prints/pc1/ip/vmlab01pc1_to_192-168-26-102.png)
-
-### vmlab01pc1 para vm01pc4
-![ping vmlab01pc1 para vmlab01pc4](imagens/ping_prints/pc1/ip/vmlab01pc1_to_192-168-26-103.png)
-
-### vmlab01pc1 para vm02pc4
-![ping vmlab01pc1 para vmlab02pc4](imagens/ping_prints/pc1/ip/vmlab01pc1_to_192-168-26-104.png)
-
 ---
 
 ## 6.2 PC2
@@ -264,5 +269,5 @@ emerson.silva = 0123456789@
 
 ---
 
-## 7 SSH
+## 7. Conexão SSH
 *(Adicione aqui as informações e prints referentes às conexões via SSH)*
