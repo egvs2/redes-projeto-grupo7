@@ -270,4 +270,24 @@ emerson.silva = 0123456789@
 ---
 
 ## 7. Conexão SSH
-*(Adicione aqui as informações e prints referentes às conexões via SSH)*
+Nesta seção estão documentados os testes de acesso remoto via SSH, comprovando a conectividade entre os nós do Grupo 7 utilizando tanto o usuário administrador quanto os usuários dos integrantes da equipe.
+
+---
+
+### SSH vmlab01pc1 para vmlab1pc1
+![SSH vmlab01pc1](imagens/ssh/vmlab01pc1_to_vmlab01pc2.jpeg)
+
+### SSH vmlab01pc1 para vmlab02pc1
+![SSH vmlab01pc2](imagens/ssh/vmlab01pc1_to_vmlab02pc1.jpeg)
+
+### SSH vmlab01pc2 para vmlab02pc2
+![SSH vmlab01pc3](imagens/ssh/vmlab01pc2_to_vmlab02pc2.jpeg)
+
+### SSH vmlab01pc3 para vmlab01pc4
+![SSH vmlab01pc4](imagens/ssh/vmlab01pc3_to_vmlab01pc4.png)
+
+### SSH vmlab01pc3 para vmlab02pc3
+![SSH vmlab02pc1](imagens/ssh/vmlab01pc3_to_vmlab02pc3.png)
+
+### SSH vmlab01pc3 para vmlab02pc4
+![SSH vmlab02pc2](imagens/ssh/vmlab01pc3_to_vmlab02pc4.png)
