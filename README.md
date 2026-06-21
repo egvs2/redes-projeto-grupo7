@@ -17,7 +17,8 @@ Heitor Moreira Costa
   * [2.4 Distribuição de Endereçamento IP do Grupo](#24-distribuição-de-endereçamento-ip-do-grupo)
 * [3. Nomenclatura, Mapeamento Local e Domínio (FQDN)](#3-nomenclatura-mapeamento-local-e-domínio-fqdn)
   * [3.1 Estrutura Prática do Arquivo `/etc/hosts`](#31-estrutura-prática-do-arquivo-etchosts)
-* [4. Usuários e senhas](#4-usuários-e-senhas)
+* [4. Usuários e senhas](#4-provisionamento-de-usuários-e-segurança)
+  * [4.1 Criação de Contas e Atribuição de Privilégios](#41-criação-de-contas-e-atribuição-de-privilégios)
 * [5. Prints netplan](#5-prints-netplan)
 * [6. Prints de ping](#6-prints-de-ping)
   * [6.1 PC1](#61-pc1)
@@ -145,18 +146,34 @@ Abaixo está a evidência da configuração implementada diretamente no arquivo 
 
 ---
 
-## 4. Usuários e senhas
-admingrupo7 = 0123456789
+## 4. Provisionamento de Usuários e Segurança
 
-taina.ferreira = 0123456789@
+Em todas as máquinas virtuais, foram estruturadas contas de gerenciamento com diferentes níveis de privilégios, divididas entre administradores locais da instituição, administradores do grupo e contas individuais de uso comum para simular os acessos dos integrantes da equipe.
 
-matheus.souza = 0123456789@
-
-heitor.costa = 0123456789@
-
-emerson.silva = 0123456789@
+* **Administradores do Sistema (Acesso Root/Sudo):**
+  * `adminifal` | Senha: `adminifal`
+  * `admingrupo7` | Senha: `0123456789`
+* **Usuários dos Integrantes (Contas Comuns):**
+  * `taina.ferreira` | Senha: `0123456789@`
+  * `matheus.souza` | Senha: `0123456789@`
+  * `heitor.costa` | Senha: `0123456789@`
+  * `emerson.silva` | Senha: `0123456789@`
 
 ---
+
+### 4.1 Criação de Contas e Atribuição de Privilégios
+
+Reproduzir procedimentos abaixo no terminal:
+
+1. **Criação das contas comuns e administrativas:**
+   Crie o usuário comum e, em seguida, adicione-o ao grupo `sudo` para conceder privilégios administrativos:
+   ```bash
+   # 1. Cria a conta comun do administrador
+    sudo adduser adminifal
+    # 2. Concede privilégios administrativos adicionando o usuário ao grupo sudo
+    sudo usermod -aG sudo adminifal
+
+
 
 ## 5. Prints netplan
 
