@@ -1,9 +1,9 @@
 # Instituto Federal de Alagoas
 ## Fundamentos de redes de computadores
 ## Grupo7
-Emerson Gomes Vanderlei da Silva
-Tainá Ferreira Miranda
-Matheus Azafhi Goes de Souza 
+Emerson Gomes Vanderlei da Silva <br>
+Tainá Ferreira Miranda <br>
+Matheus Azafhi Goes de Souza <br>
 Heitor Moreira Costa
 
 ---
