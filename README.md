@@ -10,7 +10,11 @@ Heitor Moreira Costa
 
 ## Sumário
 * [1. Planejamento da Infraestrutura e Hardware](#1-planejamento-da-infraestrutura-e-hardware)
-* [2. Tabela de Endereçamento IP e Hardware](#2-tabela-de-endereçamento-ip-e-hardware)
+* [2. Arquitetura de Endereçamento IP (Sub-rede /28)](#2-arquitetura-de-endereçamento-ip-sub-rede-28)
+  * [2.1 Descobrindo o tamanho dos blocos](#21-descobrindo-o-tamanho-dos-blocos)
+  * [2.2 Mapeamento das Sub-redes (Como chegamos ao Grupo 7)](#22-mapeamento-das-sub-redes-como-chegamos-ao-grupo-7)
+  * [2.3 Anatomia da Faixa do Grupo 7](#23-anatomia-da-faixa-do-grupo-7)
+  * [2.4 Distribuição de Endereçamento IP do Grupo](#24-distribuição-de-endereçamento-ip-do-grupo)
 * [3. Tabela de Nomenclatura e Domínio (FQDN)](#3-tabela-de-nomenclatura-e-domínio-fqdn)
 * [4. Usuários e senhas](#4-usuários-e-senhas)
 * [5. Prints netplan](#5-prints-netplan)
@@ -51,20 +55,61 @@ Para garantir a replicação idêntica deste laboratório, cada uma das 8 Máqui
 
 ---
 
-## 2. Tabela de Endereçamento IP e Hardware
+## 2. Arquitetura de Endereçamento IP (Sub-rede /28)
+
+A turma utilizou a rede mãe `192.168.26.0/24`. Seguindo a regra de segmentação, o **Grupo 7** recebeu a 7ª sub-rede calculada através da máscara de sub-rede `/28` (`255.255.255.240`), o que nos fornece blocos de 16 endereços IP (14 úteis para hosts).
+
+### Memória de Cálculo e Regra de Segmentação
+
+Para fatiar a rede mãe `192.168.26.0/24` em sub-redes menores para a turma, utilizamos a técnica de CIDR (Classless Inter-Domain Routing) com a máscara `/28`. 
+
+#### 2.1 Descobrindo o tamanho dos blocos
+A máscara `/24` original possui 24 bits destinados à rede e 8 bits para os hosts. Ao alterá-la para `/28`, "pegamos emprestado" 4 bits da parte dos hosts para criar as sub-redes.
+
+* **Máscara em bits:** `11111111.11111111.11111111.11110000` (28 bits ligados)
+* **Máscara em formato decimal:** `255.255.255.240`
+* **Quantidade de sub-redes possíveis ($2^n$):** Como pegamos 4 bits emprestados ($n=4$), temos $2^4 = 16$ sub-redes disponíveis para a turma.
+* **Tamanho de cada bloco ($2^h$):** Como restaram 4 bits para os hosts ($32 - 28 = 4$), cada sub-rede terá um tamanho fixo de $2^4 = 16$ endereços IP totais.
+
+Cada bloco perde sempre 2 endereços IPs obrigatórios (o primeiro é o ID da Rede e o último é o Broadcast), restando exatamente **14 IPs úteis** para configurar as máquinas.
+
+#### 2.2 Mapeamento das Sub-redes (Como chegamos ao Grupo 7)
+Sabendo que os blocos saltam de 16 em 16 números no último octeto, a divisão oficial das sub-redes da turma ficou organizada da seguinte forma:
+
+* **Sub-rede 1 (Grupo 1):** `192.168.26.0` a `192.168.26.15`
+* **Sub-rede 2 (Grupo 2):** `192.168.26.16` a `192.168.26.31`
+* **Sub-rede 3 (Grupo 3):** `192.168.26.32` a `192.168.26.47`
+* **Sub-rede 4 (Grupo 4):** `192.168.26.48` a `192.168.26.63`
+* **Sub-rede 5 (Grupo 5):** `192.168.26.64` a `192.168.26.79`
+* **Sub-rede 6 (Grupo 6):** `192.168.26.80` a `192.168.26.95`
+* **Sub-rede 7 (Grupo 7):** **`192.168.26.96` a `192.168.26.111`** 👈 *Nossa faixa alocada*
+* **Sub-rede 8 (Grupo 8):** `192.168.26.112` a `192.168.26.127`
+*(... e assim por diante até a Sub-rede 16)*
+
+#### 2.3 Anatomia da Faixa do Grupo 7
+Aplicando as regras do protocolo IPv4 sobre o nosso bloco, mapeamos os seguintes parâmetros de rede:
+
+* **ID de Rede (Endereço de Rede):** `192.168.26.96` (Identifica a nossa sub-rede no roteamento, não pode ser atribuído a nenhuma máquina).
+* **Primeiro IP utilizável:** `192.168.26.97` (Atribuído à primeira VM do projeto).
+* **Último IP utilizável:** `192.168.26.110` (Limite físico utilizável para hosts nesta rede).
+* **Endereço de Broadcast:** `192.168.26.111` (Utilizado para comunicação simultânea com todos os hosts da sub-rede).
+
+---
+
+### 2.4 Distribuição de Endereçamento IP do Grupo
+
+Abaixo está a distribuição de IP fixa adotada e distribuída entre as máquinas físicas (Hosts) dos integrantes da equipe para as 8 MVs do projeto:
 
 | Máquina Virtual | Host Físico | Nome do Host (Hostname) | Endereço IP / Máscara |
 | :--- | :--- | :--- | :--- |
-| VM Lab01@PC1 | PC1 | `vmlab01pc1` | 192.168.26.97/28 |
-| VM Lab02@PC1 | PC1 | `vmlab02pc1` | 192.168.26.98/28 |
-| VM Lab01@PC2 | PC2 | `vmlab01pc2` | 192.168.26.99/28 |
-| VM Lab02@PC2 | PC2 | `vmlab02pc2` | 192.168.26.100/28 |
-| VM Lab01@PC3 | PC3 | `vmlab01pc3` | 192.168.26.101/28 |
-| VM Lab02@PC3 | PC3 | `vmlab02pc3` | 192.168.26.102/28 |
-| VM Lab01@PC4 | PC4 | `vmlab01pc4` | 192.168.26.103/28 |
-| VM Lab02@PC4 | PC4 | `vmlab02pc4` | 192.168.26.104/28 |
-
----
+| VM Lab01@PC1 | PC1 (Emerson) | `vmlab01pc1` | 192.168.26.97/28 |
+| VM Lab02@PC1 | PC1 (Emerson) | `vmlab02pc1` | 192.168.26.98/28 |
+| VM Lab01@PC2 | PC2 (Tainá) | `vmlab01pc2` | 192.168.26.99/28 |
+| VM Lab02@PC2 | PC2 (Tainá) | `vmlab02pc2` | 192.168.26.100/28 |
+| VM Lab01@PC3 | PC3 (Matheus) | `vmlab01pc3` | 192.168.26.101/28 |
+| VM Lab02@PC3 | PC3 (Matheus) | `vmlab02pc3` | 192.168.26.102/28 |
+| VM Lab01@PC4 | PC4 (Heitor) | `vmlab01pc4` | 192.168.26.103/28 |
+| VM Lab02@PC4 | PC4 (Heitor) | `vmlab02pc4` | 192.168.26.104/28 |
 
 ## 3. Tabela de Nomenclatura e Domínio (FQDN)
 
