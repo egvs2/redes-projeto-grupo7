@@ -96,6 +96,8 @@ Aplicando as regras do protocolo IPv4 sobre o nosso bloco, mapeamos os seguintes
 
 ---
 
+> ℹ️ **Nota:** Embora o cálculo de sub-rede `/28` disponibilize um total de 14 endereços IP válidos para hosts (de `.97` a `.110`), este laboratório utilizará estritamente **8 endereços IP** (de `.97` a `.104`), cumprindo o requisito de provisionar exatamente 8 Máquinas Virtuais para o cenário proposto. Os 6 endereços restantes (`.105` a `.110`) permanecem livres para futuras expansões da rede.
+
 ### 2.4 Distribuição de Endereçamento IP do Grupo
 
 Abaixo está a distribuição de IP fixa adotada e distribuída entre as máquinas físicas (Hosts) dos integrantes da equipe para as 8 MVs do projeto:
