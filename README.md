@@ -15,7 +15,8 @@ Heitor Moreira Costa
   * [2.2 Mapeamento das Sub-redes (Como chegamos ao Grupo 7)](#22-mapeamento-das-sub-redes-como-chegamos-ao-grupo-7)
   * [2.3 Anatomia da Faixa do Grupo 7](#23-anatomia-da-faixa-do-grupo-7)
   * [2.4 Distribuição de Endereçamento IP do Grupo](#24-distribuição-de-endereçamento-ip-do-grupo)
-* [3. Tabela de Nomenclatura e Domínio (FQDN)](#3-tabela-de-nomenclatura-e-domínio-fqdn)
+* [3. Nomenclatura, Mapeamento Local e Domínio (FQDN)](#3-nomenclatura-mapeamento-local-e-domínio-fqdn)
+  * [3.1 Estrutura Prática do Arquivo `/etc/hosts`](#31-estrutura-prática-do-arquivo-etchosts)
 * [4. Usuários e senhas](#4-usuários-e-senhas)
 * [5. Prints netplan](#5-prints-netplan)
 * [6. Prints de ping](#6-prints-de-ping)
@@ -113,18 +114,34 @@ Abaixo está a distribuição de IP fixa adotada e distribuída entre as máquin
 | VM Lab01@PC4 | PC4 (Heitor) | `vmlab01pc4` | 192.168.26.103/28 |
 | VM Lab02@PC4 | PC4 (Heitor) | `vmlab02pc4` | 192.168.26.104/28 |
 
-## 3. Tabela de Nomenclatura e Domínio (FQDN)
+## 3. Nomenclatura, Mapeamento Local e Domínio (FQDN)
 
-| Endereço IP | Hostname Curto | Nome de Domínio Completo (FQDN) | Apelidos (Aliases) |
-| :--- | :--- | :--- | :--- |
-| 192.168.26.97 | `vmlab01pc1` | `vmlab01pc1.grupo7.bsi-26-1.maceio.lab` | vm01pc1, srv1 |
-| 192.168.26.98 | `vmlab02pc1` | `vmlab02pc1.grupo7.bsi-26-1.maceio.lab` | vm02pc1, srv2 |
-| 192.168.26.99 | `vmlab01pc2` | `vmlab01pc2.grupo7.bsi-26-1.maceio.lab` | vm01pc2, srv3 |
-| 192.168.26.100 | `vmlab02pc2` | `vmlab02pc2.grupo7.bsi-26-1.maceio.lab` | vm02pc2, srv4 |
-| 192.168.26.101 | `vmlab01pc3` | `vmlab01pc3.grupo7.bsi-26-1.maceio.lab` | vm01pc3, srv5 |
-| 192.168.26.102 | `vmlab02pc3` | `vmlab02pc3.grupo7.bsi-26-1.maceio.lab` | vm02pc3, srv6 |
-| 192.168.26.103 | `vmlab01pc4` | `vmlab01pc4.grupo7.bsi-26-1.maceio.lab` | vm01pc4, srv7 |
-| 192.168.26.104 | `vmlab02pc4` | `vmlab02pc4.grupo7.bsi-26-1.maceio.lab` | vm02pc4, srv8 |
+Como não há um servidor DNS ativo nesta rede virtualizada, a resolução de nomes é realizada de maneira estática em nível de sistema operacional. O domínio obrigatório do projeto segue o formato padrão `<grupoX>.bsi-26-1.maceio.lab`.
+
+A tabela abaixo apresenta o planejamento completo de nomes de domínio, hostnames e todos os apelidos (*aliases*) associados a cada endereço IP que compõem o nosso laboratório:
+
+| Endereço IP | Nome de Domínio Completo (FQDN) | Apelidos / Nomes Curtos (Aliases) |
+| :--- | :--- | :--- |
+| 192.168.26.97 | `vmlab01pc1.grupo7.bsi-26-1.maceio.lab` | vmlab01pc1, vm01pc1, srv1 |
+| 192.168.26.98 | `vmlab02pc1.grupo7.bsi-26-1.maceio.lab` | vmlab02pc1, vm02pc1, srv2 |
+| 192.168.26.99 | `vmlab01pc2.grupo7.bsi-26-1.maceio.lab` | vmlab01pc2, vm01pc2, srv3 |
+| 192.168.26.100 | `vmlab02pc2.grupo7.bsi-26-1.maceio.lab` | vmlab02pc2, vm02pc2, srv4 |
+| 192.168.26.101 | `vmlab01pc3.grupo7.bsi-26-1.maceio.lab` | vmlab01pc3, vm01pc3, srv5 |
+| 192.168.26.102 | `vmlab02pc3.grupo7.bsi-26-1.maceio.lab` | vmlab02pc3, vm02pc3, srv6 |
+| 192.168.26.103 | `vmlab01pc4.grupo7.bsi-26-1.maceio.lab` | vmlab01pc4, vm01pc4, srv7 |
+| 192.168.26.104 | `vmlab02pc4.grupo7.bsi-26-1.maceio.lab` | vmlab02pc4, vm02pc4, srv8 |
+
+---
+
+### 3.1 Estrutura Prática do Arquivo `/etc/hosts`
+
+Para materializar esse planejamento no ecossistema Linux, o arquivo `/etc/hosts` foi editado em cada nó utilizando a sintaxe nativa: `IP [FQDN] [Aliases...]`. Esse arquivo deve ser mantido **idêntico** em todas as 8 máquinas virtuais para garantir que o mapeamento seja bidirecional e uniforme em toda a sub-rede.
+
+Abaixo está a evidência da configuração implementada diretamente no arquivo do sistema operacional, inspecionada através do comando `cat`:
+
+![Mapeamento do arquivo hosts](imagens/print_hosts.jpg)
+
+>**Nota de Instrução para Replicação:** No Linux, qualquer alteração realizada no arquivo `/etc/hosts` tem efeito imediato na resolução de rede local, dispensando a necessidade de reiniciar a interface de rede ou a máquina virtual para que os apelidos (como `srv1` ou `vm01pc1`) comecem a responder aos comandos de rede.
 
 ---
 
