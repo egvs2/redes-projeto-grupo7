@@ -9,7 +9,7 @@ Heitor Moreira Costa
 ---
 
 ## Sumário
-* [1. Tabela de Hardware das VMs](#1-tabela-de-hardware-das-vms)
+* [1. Planejamento da Infraestrutura e Hardware](#1-planejamento-da-infraestrutura-e-hardware)
 * [2. Tabela de Endereçamento IP e Hardware](#2-tabela-de-endereçamento-ip-e-hardware)
 * [3. Tabela de Nomenclatura e Domínio (FQDN)](#3-tabela-de-nomenclatura-e-domínio-fqdn)
 * [4. Usuários e senhas](#4-usuários-e-senhas)
@@ -37,15 +37,17 @@ Heitor Moreira Costa
 
 # Tabelas de Configuração de Hardware, Endereçamento e Domínio
 
-## 1. Tabela de Hardware das VMs
+## 1. Planejamento da Infraestrutura e Hardware
 
-| Componente | Configuração por VM |
-| :--- | :--- |
-| **Sistema Operacional** | Ubuntu Server 22.04 LTS |
-| **Processador (vCPU)** | 1 Core/Processador |
-| **Memória RAM** | 2048 MB (1GB) |
-| **Disco Rígido (HD)** | 25 GB (Alocação Dinâmica) |
-| **Placa de Rede** | 1 Interface em modo bridge |
+Para garantir a replicação idêntica deste laboratório, cada uma das 8 Máquinas Virtuais (MVs) deve ser criada no VirtualBox utilizando estritamente a seguinte especificação técnica:
+
+| Componente | Configuração por VM | Função no Laboratório |
+| :--- | :--- | :--- |
+| **Sistema Operacional** | Ubuntu Server 26.04 LTS | Sistema operacional base (sem interface gráfica). |
+| **Processador (vCPU)** | 1 Core / 1 Processador | Suficiente para a execução de serviços básicos CLI. |
+| **Memória RAM** | 2048 MB (2GB) | Alocação ideal para evitar travamentos em sistemas locais. |
+| **Disco Rígido (HD)** | 25 GB (Alocação Dinâmica) | Espaço para armazenamento de logs e arquivos do sistema. |
+| **Placa de Rede** | 1 Interface em Modo Bridge | Vinculada à interface física ativa (Wi-Fi ou Cabo) do host real. |
 
 ---
 
