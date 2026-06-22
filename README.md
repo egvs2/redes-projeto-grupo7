@@ -1,10 +1,7 @@
 # Instituto Federal de Alagoas
 ## Fundamentos de redes de computadores
 ## Grupo7
-Emerson Gomes Vanderlei da Silva <br>
-Tainá Ferreira Miranda <br>
-Matheus Azafhi Goes de Souza <br>
-Heitor Moreira Costa
+Emerson Gomes Vanderlei da Silva <br>Tainá Ferreira Miranda <br>Matheus Azafhi Goes de Souza <br>Heitor Moreira Costa
 
 ---
 
@@ -19,7 +16,11 @@ Heitor Moreira Costa
   * [3.1 Estrutura Prática do Arquivo `/etc/hosts`](#31-estrutura-prática-do-arquivo-etchosts)
 * [4. Usuários e senhas](#4-provisionamento-de-usuários-e-segurança)
   * [4.1 Criação de Contas e Atribuição de Privilégios](#41-criação-de-contas-e-atribuição-de-privilégios)
-* [5. Prints netplan](#5-prints-netplan)
+* [5. Configuração de Rede com Netplan](#5-configuração-de-rede-com-netplan)
+  * [5.1 Estrutura e Sintaxe do Netplan](#51-estrutura-e-sintaxe-do-netplan)
+  * [5.2 Configuração Aplicada no Grupo 7](#52-configuração-aplicada-no-grupo-7)
+  * [5.3 Passo a Passo para Configuração no Ubuntu Server](#53-passo-a-passo-para-configuração-no-ubuntu-server)
+  * [5.4 Prints da Configuração Netplan Aplicada](#54-prints-da-configuração-netplan-aplicada)
 * [6. Prints de ping](#6-prints-de-ping)
   * [6.1 PC1](#61-pc1)
     * [6.1.1 Ping com FQDN](#611-ping-com-fqdn)
@@ -166,17 +167,115 @@ Em todas as máquinas virtuais, foram estruturadas contas de gerenciamento com d
 Reproduzir procedimentos abaixo no terminal:
 
 1. **Criação das contas comuns e administrativas:**
-   Crie o usuário comum e, em seguida, adicione-o ao grupo `sudo` para conceder privilégios administrativos:
-   ```bash
-   # 1. Cria a conta comun do administrador
-    sudo adduser adminifal
-    # 2. Concede privilégios administrativos adicionando o usuário ao grupo sudo
-    sudo usermod -aG sudo adminifal
+  Crie o usuário comum e, em seguida, adicione-o ao grupo `sudo` para conceder privilégios administrativos:
+  ```bash
+  # 1. Cria a conta comun do administrador
+  sudo adduser adminifal
+  # 2. Concede privilégios administrativos adicionando o usuário ao grupo sudo
+  sudo usermod -aG sudo adminifal
+  ```
+
+## 5. Configuração de Rede com Netplan
+
+O Netplan é a ferramenta padrão de configuração de rede no Ubuntu Server. Ela utiliza um arquivo de configuração no formato **YAML** (um acrônimo recursivo para "YAML Ain't Markup Language") para definir as interfaces de rede de forma declarativa e simplificada.
+
+### 5.1 Estrutura e Sintaxe do Netplan
+
+Os arquivos de configuração do Netplan estão localizados no diretório `/etc/netplan/` e geralmente possuem extensão `.yaml`. A sintaxe básica segue o seguinte padrão:
+
+  ```yaml
+  network:
+    version: 2
+    ethernets:
+      <nome_da_interface>:
+        dhcp4: true/false
+        addresses:
+          - <IP>/<máscara>
+        nameservers:
+          addresses: [<DNS1>, <DNS2>]
+        routes:
+          - to: default
+            via: <gateway>
+  ```
+
+### Componentes principais da sintaxe YAML
+
+| Elemento              | Descrição                                                                                     |
+| --------------------- | --------------------------------------------------------------------------------------------- |
+| `network:`            | Nó raiz que define o início da configuração de rede.                                          |
+| `version: 2`          | Versão da sintaxe do Netplan (atualmente a versão 2 é a padrão).                              |
+| `ethernets:`          | Seção que agrupa as interfaces de rede físicas (Ethernet).                                    |
+| `<nome_da_interface>` | Identificador da interface (ex.: `enp0s3`, `eth0`). Pode ser descoberto com o comando `ip a`. |
+| `dhcp4:`              | Define se a interface deve obter endereço IPv4 via DHCP (`yes/true`) ou  (`no/false`).            |
+| `addresses:`          | Lista de endereços IP estáticos no formato `IP/máscara`.                                      |
+| `nameservers:`        | Configura os servidores DNS.                                                                  |
+| `routes:`             | Define rotas estáticas, sendo a rota padrão (`default`) a que aponta para o gateway.          |
+
+### Regras importantes da sintaxe YAML
+
+* **Indentação obrigatória:** O YAML utiliza espaços (não tabs) para definir hierarquia. Cada nível de indentação deve ter 2 ou 4 espaços (padrão: 2).
+* **Sensível a maiúsculas/minúsculas:** Os nomes das chaves devem ser escritos exatamente como especificados.
+* **Listas:** Utilizam o hífen (`-`) para elementos sequenciais, como múltiplos IPs ou DNS.
+* **Dicionários:** Utilizam a sintaxe `chave: valor` com dois pontos e espaço.
+
+### 5.2 Configuração Aplicada no Grupo 7
+
+Para o nosso laboratório, cada máquina virtual possui um endereço IP fixo, utilizando o arquivo `/etc/hosts` para resolução de nomes. O arquivo de configuração do Netplan (`/etc/netplan/00-installer-config.yaml`) foi adaptado com a seguinte estrutura base:
+
+  ```yaml
+  network:
+    version: 2
+    ethernets:
+      enp0s3:                  # Nome da interface de rede (pode variar)
+        dhcp4: no           # Desativa o DHCP
+        addresses:
+          - 192.168.26.97/28   # IP estático com a máscara da sub-rede
+        routes:
+          - to: default
+            via: 192.168.26.1  # Gateway da rede (roteador local)
+        nameservers:
+          addresses: [8.8.8.8, 8.8.4.4] # DNS opcional para acesso externo
+  ```
+
+### 5.3 Passo a Passo para Configuração no Ubuntu Server
+
+Para configurar a rede via Netplan em cada máquina virtual, siga os procedimentos abaixo:
+
+### 1. Identificar o nome da interface de rede
+
+  ```bash
+  ip a
+  ```
+
+Procure por interfaces como `enp0s3`, `eth0` ou similares.
+
+### 2. Editar o arquivo de configuração
+
+  ```bash
+  sudo nano /etc/netplan/00-installer-config.yaml
+  ```
 
 
+### 3. Inserir a configuração específica da VM
 
-## 5. Prints netplan
+Substitua o IP pelo endereço correspondente da máquina conforme a tabela de endereçamento do grupo.
 
+### 4. Aplicar as configurações
+
+  ```bash
+  sudo netplan apply
+  ```
+
+Este comando valida a sintaxe do YAML e aplica as configurações às interfaces de rede.
+
+### 5. Verificar a configuração aplicada
+
+  ```bash
+  ip a
+  ```
+
+O comando `ip a` exibe as interfaces de rede e seus endereços IP configurados.
+### 5.4 Prints da Configuração Netplan Aplicada
 ### Netplan vmlab01pc1
 ![netplan_vmlab01pc1](imagens/netplan_prints/netplan_vmlab01pc1.jpg)
 
