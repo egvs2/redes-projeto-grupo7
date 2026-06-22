@@ -304,6 +304,20 @@ O comando `ip a` exibe as interfaces de rede e seus endereços IP configurados.
 
 ## 6. Prints de ping
 
+O comando `ping` é uma das ferramentas utilitárias mais fundamentais para a gerência, diagnóstico e resolução de problemas (*troubleshooting*) em redes de computadores. O seu objetivo principal é testar a conectividade em nível de camada de rede entre um host de origem e um destino específico.
+
+### O que é e Como Funciona o Ping?
+O funcionamento do `ping` baseia-se diretamente no protocolo **ICMP** (*Internet Control Message Protocol*), operando em uma dinâmica de requisição e resposta estruturada em duas etapas essenciais:
+
+1. **ICMP Echo Request (Tipo 8):** O host de origem envia um pacote especial de solicitação de eco através da rede em direção ao endereço IP do destino.
+2. **ICMP Echo Reply (Tipo 0):** Caso o host de destino esteja ativo, com a interface de rede configurada corretamente e sem bloqueios de firewall, ele processa a requisição e devolve obrigatoriamente um pacote de resposta de eco para a origem.
+
+
+
+No nosso laboratório, as baterias de testes foram segmentadas em três metodologias de resolução para validar a consistência das configurações: por endereço IP direto, por hostname simplificado e através do nome de domínio (FQDN) amparado estritamente pelo arquivo estático `/etc/hosts`.
+
+---
+
 ## 6.1 PC1
 
 ### 6.1.1 Ping com FQDN
