@@ -466,7 +466,27 @@ No nosso laboratório, as baterias de testes foram segmentadas em três metodolo
 ---
 
 ## 7. Conexão SSH
-Nesta seção estão documentados os testes de acesso remoto via SSH, comprovando a conectividade entre os nós do Grupo 7 utilizando tanto o usuário administrador quanto os usuários dos integrantes da equipe.
+
+O **SSH** (*Secure Shell*) é um protocolo de rede da camada de aplicação (Camada 7 do modelo OSI) projetado para permitir acesso remoto seguro, administração de sistemas e transferência de arquivos entre computadores por meio de um canal totalmente criptografado. Ele foi desenvolvido para substituir protocolos legados como o *Telnet*, que transmitiam dados — incluindo senhas — em texto puro, tornando as comunicações vulneráveis a ataques de interceptação (*sniffing*).
+
+### Arquitetura e Fundamentos de Segurança
+
+O SSH adota o modelo **cliente-servidor** e escuta, por padrão, na **porta TCP 22**. Sua robustez é sustentada por três mecanismos criptográficos complementares:
+
+1. **Criptografia Simétrica:** Após o estabelecimento da conexão inicial, é gerada uma chave secreta compartilhada, utilizada para cifrar toda a comunicação entre cliente e servidor. Esse mecanismo garante que qualquer dado trafegado permaneça confidencial, mesmo que seja interceptado por terceiros.
+
+2. **Criptografia Assimétrica (Par de Chaves):** O SSH utiliza um par de chaves — pública e privada — para garantir a **autenticação do servidor**, assegurando ao cliente que ele está se conectando ao host legítimo e não a um possível impostor. O mesmo mecanismo pode ser utilizado de forma opcional para autenticar o próprio usuário, oferecendo um nível adicional de segurança em relação ao uso exclusivo de senhas.
+
+3. **Integridade de Dados (HMAC):** Por meio de códigos de autenticação de mensagem baseados em *hashing*, o SSH verifica se cada pacote transmitido chegou intacto ao destino, sem sofrer alterações ou adulterações durante o percurso.
+
+### Validação no Ambiente do Laboratório
+
+Nos testes realizados neste laboratório, o serviço `sshd` (*OpenSSH Server*) foi devidamente instalado e ativado em todas as máquinas virtuais Ubuntu Server. As conexões foram validadas de forma cruzada entre os nós da sub-rede `/28`, simulando cenários reais de administração remota:
+
+- **Acessos administrativos:** Realizados com as contas de gerência, com privilégios elevados para manutenção do sistema.
+- **Acessos operacionais:** Efetuados com as contas comuns dos integrantes da equipe, restritas a tarefas rotineiras.
+
+Os resultados obtidos comprovam a plena funcionalidade e a confiabilidade do serviço SSH para a gestão segura da infraestrutura de rede.
 
 ---
 
